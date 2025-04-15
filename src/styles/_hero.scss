@@ -1,0 +1,72 @@
+@use "variaveis";
+
+.hero {
+  min-height: 100vh;
+  background-image: url("../images/herobg.jpg");
+  text-align: center;
+  background-size: cover;
+  display: flex;
+  padding-top: 100px;
+  padding-bottom: 10px;
+  &__content {
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    gap: 20px;
+
+    & h3 {
+      font-family: variaveis.$fonteTitulo;
+    }
+
+    &__branding {
+      font-family: variaveis.$fonteTitulo;
+    }
+
+    .title--big {
+      margin-bottom: 64px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+
+    &__combos {
+      display: flex;
+      justify-content: space-between;
+      &__combo {
+        list-style: none;
+
+        img {
+          max-height: 200px;
+        }
+        button {
+          display: block;
+          width: 60%;
+          margin: 0 auto;
+          height: 60px;
+          font-size: 18px;
+          color: variaveis.$cortextoSecundario;
+          background-color: variaveis.$corDestaque;
+          text-transform: uppercase;
+          border-radius: 10px;
+          margin-top: 1vw;
+          margin-bottom: 8px;
+          padding: 12px;
+          font-family: variaveis.$fonteSubtitulo;
+          &:hover {
+            background-color: variaveis.$corHover;
+            transition: 0.3s;
+          }
+        }
+        .text {
+          font-family: variaveis.$fonteSubtitulo;
+        }
+      }
+    }
+    .text--small {
+      font-family: variaveis.$fonteTexto;
+    }
+  }
+}
