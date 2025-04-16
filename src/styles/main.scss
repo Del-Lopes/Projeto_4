@@ -1,10 +1,13 @@
 @use "variaveis";
 @use "hero";
+@use "shows";
+@use "plans";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
 }
 
 body {
@@ -49,4 +52,24 @@ body {
   @include text(18px);
   color: variaveis.$cortextoSecundario;
   text-decoration: underline;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  height: 60px;
+  font-size: 18px;
+  color: variaveis.$cortextoSecundario;
+  background-color: variaveis.$corDestaque;
+  text-transform: uppercase;
+  border-radius: 10px;
+  margin-top: 1vw;
+  margin-bottom: 8px;
+  padding: 12px;
+  font-family: variaveis.$fonteSubtitulo;
+  &:hover {
+    background-color: variaveis.$corHover;
+    transition: 0.3s;
+  }
 }
