@@ -2,12 +2,17 @@
 @use "hero";
 @use "shows";
 @use "plans";
+@use "available-devices";
+@use "faq";
+@use "footer";
+@use "header";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Montserrat, sans-serif;
+  list-style: none;
 }
 
 body {
@@ -26,26 +31,45 @@ body {
 }
 .text--big {
   @include text(18px);
+  @media (max-width: 768px) {
+    @include title(15px);
+  }
 }
 
 .text {
   @include text();
+  @media (max-width: 768px) {
+    @include title(14px);
+  }
 }
 
 .text--small {
   @include text(12px);
+  @media (max-width: 768px) {
+    @include title(11px);
+  }
 }
 
 .title--big {
   @include title(44px);
+  @media (max-width: 768px) {
+    @include title(26px);
+  }
 }
 
 .title {
   @include title;
+
+  @media (max-width: 768px) {
+    @include title(24px);
+  }
 }
 
 .title--small {
   @include title(28px);
+  @media (max-width: 768px) {
+    @include title(22px);
+  }
 }
 
 .link-text {
@@ -55,7 +79,9 @@ body {
 }
 
 .button {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   margin: 0 auto;
   height: 60px;
@@ -64,12 +90,80 @@ body {
   background-color: variaveis.$corDestaque;
   text-transform: uppercase;
   border-radius: 10px;
-  margin-top: 1vw;
-  margin-bottom: 8px;
   padding: 12px;
   font-family: variaveis.$fonteSubtitulo;
+  text-decoration: none;
+  padding: 8px 14px;
+  letter-spacing: 1px;
+  border: 1px solid variaveis.$corDestaque;
+
   &:hover {
-    background-color: variaveis.$corHover;
+    background-color: lighten(variaveis.$corDestaque, 3%);
     transition: 0.3s;
+  }
+
+  &--secondary {
+    background-color: variaveis.$corBotaoSecundario;
+    border-color: variaveis.$corBotaoSecundario;
+
+    &:hover {
+      background-color: lighten(variaveis.$corBotaoSecundario, 3%);
+    }
+  }
+
+  &--dark {
+    background-color: rgba(variaveis.$corDark, 0.8);
+    border-color: variaveis.$cortextoSecundario;
+
+    &:hover {
+      background-color: variaveis.$cortextoSecundario;
+      color: variaveis.$corDeFundo;
+    }
+  }
+}
+
+.image-text-section {
+  padding: 5.6vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  &__text_container {
+    padding: 2vw;
+    h2 {
+      margin-bottom: 24px;
+    }
+  }
+  &--image-full-with {
+    display: block;
+    position: relative;
+
+    img {
+      width: 100%;
+    }
+    &__text_container {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: 100%;
+      width: calc(50% - 5.6vw);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @media (max-width: 768px) {
+        position: relative;
+        left: 0;
+        width: 100%;
+      }
+    }
   }
 }
